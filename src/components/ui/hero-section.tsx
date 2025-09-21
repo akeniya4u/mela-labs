@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { Button } from "./button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onBookingClick?: () => void;
+}
+
+export function HeroSection({ onBookingClick }: HeroSectionProps) {
+  const scrollToBooking = () => {
+    const bookingSection = document.getElementById('booking-section');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -41,14 +52,14 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="group">
+            <Button size="lg" className="group" onClick={onBookingClick || scrollToBooking}>
               Book Free Consultation
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             
-            <Button variant="outline" size="lg" className="group">
-              <Play className="mr-2 h-4 w-4" />
-              Watch Our Story
+            <Button variant="outline" size="lg" className="group" onClick={scrollToBooking}>
+              <ArrowRight className="mr-2 h-4 w-4" />
+              Get Started
             </Button>
           </div>
 

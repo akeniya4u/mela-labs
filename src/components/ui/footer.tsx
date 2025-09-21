@@ -72,7 +72,7 @@ export function Footer() {
               <div className="flex items-start space-x-2">
                 <Mail className="h-4 w-4 mt-1 text-background/70" />
                 <span className="text-background/70 text-sm">
-                  hello@melalabs.com
+                  salesmelalabs@gmail.com
                 </span>
               </div>
               <div className="flex items-start space-x-2">
@@ -95,7 +95,7 @@ export function Footer() {
         <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-4 mb-4 md:mb-0">
             <a
-              href="https://instagram.com/melalabs"
+              href="https://www.instagram.com/i_am_elyara"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
@@ -103,7 +103,7 @@ export function Footer() {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/company/melalabs"
+              href="https://www.linkedin.com/in/olinaf-abdisa-034151285"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
@@ -111,7 +111,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://facebook.com/melalabs"
+              href="https://www.facebook.com/profile.php?id=61580970369824"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"

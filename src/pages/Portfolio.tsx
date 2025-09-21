@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { CaseStudyModal } from "@/components/ui/case-study-modal";
 import { 
   ExternalLink,
   ArrowRight,
@@ -108,6 +110,18 @@ const categories = [
 ];
 
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState("All Projects");
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const filteredProjects = selectedCategory === "All Projects" 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory);
+
+  const handleViewCaseStudy = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section */}
@@ -135,9 +149,10 @@ export default function Portfolio() {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant={category === "All Projects" ? "default" : "outline"}
+                variant={category === selectedCategory ? "default" : "outline"}
                 size="sm"
                 className="mb-2"
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </Button>
@@ -150,7 +165,7 @@ export default function Portfolio() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <Card key={index} className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <div className="aspect-video overflow-hidden">
                   <img 
@@ -203,7 +218,12 @@ export default function Portfolio() {
                     </div>
 
                     {/* CTA */}
-                    <Button variant="outline" size="sm" className="w-full group mt-4">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full group mt-4"
+                      onClick={() => handleViewCaseStudy(project)}
+                    >
                       View Case Study
                       <ExternalLink className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -230,8 +250,8 @@ export default function Portfolio() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { number: "100+", label: "Projects Delivered" },
-              { number: "$50M+", label: "Client Revenue Generated" },
-              { number: "500%", label: "Average ROI Increase" },
+              { number: "$100K+", label: "Client Revenue Generated" },
+              { number: "100%", label: "Average ROI Increase" },
               { number: "98%", label: "Client Satisfaction Rate" }
             ].map((stat, index) => (
               <div key={index} className="text-center">
@@ -268,6 +288,12 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <CaseStudyModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
     </div>
   );
 }

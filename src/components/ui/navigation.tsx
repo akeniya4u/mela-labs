@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import melaLabsLogo from "@/assets/mela-labs-logo.png";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -23,9 +24,11 @@ export function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-hero flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ML</span>
-              </div>
+              <img 
+                src={melaLabsLogo} 
+                alt="Mela Labs Logo" 
+                className="h-8 w-8 object-contain"
+              />
               <span className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
                 Mela Labs
               </span>

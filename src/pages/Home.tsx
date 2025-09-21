@@ -1,65 +1,78 @@
+import { useState } from "react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { ServicesSection } from "@/components/ui/services-section";
+import { Footer } from "@/components/ui/footer";
+import { BookingForm } from "@/components/ui/booking-form";
+import { LeadForm } from "@/components/ui/lead-form";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  CheckCircle, 
-  Globe, 
-  Zap, 
-  DollarSign, 
-  Star,
-  ArrowRight
-} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, CheckCircle, Star, Users, TrendingUp, Award, Globe, Zap, DollarSign } from "lucide-react";
 
 export default function Home() {
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+
+  const scrollToBooking = () => {
+    const bookingSection = document.getElementById('booking-section');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
-      <HeroSection />
+      <HeroSection onBookingClick={() => setIsBookingFormOpen(true)} />
       
       {/* Brand Story Section */}
-      <section className="py-24">
+      <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center rounded-full border px-4 py-2 text-sm bg-accent/50 text-accent-foreground mb-6">
-                Our Story
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Why <span className="bg-gradient-hero bg-clip-text text-transparent">Mela Labs?</span>
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Mela</strong> means "solution" and represents money in Amharic slang – 
-                  symbolizing growth and smart financial decisions for your business.
-                </p>
-                <p>
-                  <strong className="text-foreground">Labs</strong> represents innovation, experimentation, 
-                  and trying new ideas – just like a research laboratory pushing boundaries.
-                </p>
-                <p>
-                  Together, <strong className="text-primary">Mela Labs</strong> is your Digital Growth Lab, 
-                  delivering smart solutions with global impact through virtual-first collaboration.
-                </p>
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge variant="outline" className="mb-4">Our Story</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose <span className="bg-gradient-hero bg-clip-text text-transparent">Mela Labs?</span>
+            </h2>
+            <p className="text-lg text-muted-foreground mb-12">
+              "Mela" means solution and money in Amharic slang, representing growth and smart solutions. 
+              "Labs" represents innovation, experimenting, and trying new ideas. Together, we're your 
+              digital growth lab delivering affordable, high-quality services with global impact.
+            </p>
             
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Globe, title: "Global Reach", desc: "Virtual-first approach" },
-                { icon: DollarSign, title: "Cost Effective", desc: "50% savings on average" },
-                { icon: Zap, title: "Fast Delivery", desc: "Quick turnaround times" },
-                { icon: Star, title: "Premium Quality", desc: "Enterprise-grade solutions" },
-              ].map((item, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-soft transition-all duration-300">
-                  <CardContent className="p-0">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="text-center">
+                <CardHeader>
+                  <TrendingUp className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <CardTitle className="text-lg">Smart Solutions</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    Data-driven strategies and cutting-edge technology to accelerate your growth.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <Users className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <CardTitle className="text-lg">Virtual-First</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    Cost-effective solutions without compromising on quality or collaboration.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <Award className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <CardTitle className="text-lg">Global Impact</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    Worldwide reach with local expertise to transform businesses globally.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -67,49 +80,81 @@ export default function Home() {
 
       <ServicesSection />
 
-      {/* Why Choose Us */}
-      <section className="py-24">
+      {/* Updated Impact Section */}
+      <section className="py-24 bg-gradient-to-br from-muted/30 to-accent/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why Choose <span className="bg-gradient-hero bg-clip-text text-transparent">Mela Labs?</span>
+              Our Impact in <span className="bg-gradient-hero bg-clip-text text-transparent">Numbers</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're not just another agency. We're your strategic digital growth partner 
-              committed to your success.
+              Real results from real partnerships. Here's how we've helped our clients achieve success.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "100+", label: "Projects Delivered" },
+              { number: "$100K+", label: "Client Revenue Generated" },
+              { number: "100%", label: "Average ROI Increase" },
+              { number: "98%", label: "Client Satisfaction Rate" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonials */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge variant="outline" className="mb-4">Testimonials</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              What Our <span className="bg-gradient-hero bg-clip-text text-transparent">Clients Say</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Virtual-First Advantage",
-                description: "Access global talent without geographical limitations. Lower overhead costs mean better value for you.",
-                benefits: ["24/7 global support", "Reduced operational costs", "Access to diverse expertise"]
+                name: "Sarah Johnson",
+                role: "CEO, TechStart",
+                content: "Mela Labs transformed our digital presence completely. The ROI was incredible - we saw 300% growth in just 6 months.",
+                rating: 5
               },
               {
-                title: "All-in-One Solutions",
-                description: "From creative design to AI automation, we handle everything so you can focus on growing your business.",
-                benefits: ["Streamlined communication", "Consistent quality", "Single point of contact"]
+                name: "Michael Chen",
+                role: "Founder, E-commerce Plus",
+                content: "Professional, efficient, and results-driven. They delivered beyond our expectations while staying within budget.",
+                rating: 5
               },
               {
-                title: "Affordable Excellence",
-                description: "Enterprise-quality services at startup-friendly prices. High-quality work shouldn't break the bank.",
-                benefits: ["Transparent pricing", "Flexible packages", "No hidden fees"]
+                name: "Emily Rodriguez",
+                role: "Marketing Director",
+                content: "The virtual collaboration was seamless. It felt like they were part of our team from day one.",
+                rating: 5
               }
-            ].map((item, index) => (
-              <Card key={index} className="p-8 hover:shadow-soft transition-all duration-300">
-                <CardContent className="p-0">
-                  <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-                  <p className="text-muted-foreground mb-6">{item.description}</p>
-                  <ul className="space-y-2">
-                    {item.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-center text-sm">
-                        <CheckCircle className="h-4 w-4 text-primary mr-2" />
-                        {benefit}
-                      </li>
+            ].map((testimonial, index) => (
+              <Card key={index} className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center mb-2">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                     ))}
-                  </ul>
+                  </div>
+                  <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground italic">"{testimonial.content}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -117,27 +162,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-hero">
+      {/* Booking Section */}
+      <section id="booking-section" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Digital Presence?
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to <span className="bg-gradient-hero bg-clip-text text-transparent">Get Started?</span>
           </h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Let's discuss how Mela Labs can help accelerate your business growth 
-            with our comprehensive digital solutions.
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Book your free consultation today and let's discuss how we can transform your business.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Book Free Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-              Learn More About Us
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            onClick={() => setIsBookingFormOpen(true)}
+            className="group"
+          >
+            Book Free Consultation
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
       </section>
+
+      <LeadForm />
+      <Footer />
+
+      <BookingForm 
+        isOpen={isBookingFormOpen} 
+        onClose={() => setIsBookingFormOpen(false)} 
+      />
     </div>
   );
 }
