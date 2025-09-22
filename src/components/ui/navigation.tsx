@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import melaLabsLogo from "@/assets/mela-labs-logo.png";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "#home" },
+  { name: "Services", href: "#services" },
+  { name: "Portfolio", href: "#portfolio" },
+  { name: "Contact", href: "#contact" },
+  { name: "About", href: "#about" },
 ];
 
 export function Navigation() {
@@ -38,28 +38,37 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary relative",
-                  location.pathname === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = item.href.replace('#', '');
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-sm font-medium transition-colors hover:text-primary cursor-pointer text-muted-foreground"
               >
                 {item.name}
-                {location.pathname === item.href && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-hero rounded-full" />
-                )}
-              </Link>
+              </a>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="default" size="sm" asChild>
-              <Link to="/contact">Book Free Consultation</Link>
+            <Button 
+              variant="default" 
+              size="sm"
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Book Free Consultation
             </Button>
           </div>
 
@@ -82,22 +91,36 @@ export function Navigation() {
           <div className="md:hidden py-4 border-t border-border/40">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
-                  className={cn(
-                    "text-sm font-medium px-2 py-1 rounded-md transition-colors",
-                    location.pathname === item.href
-                      ? "text-primary bg-accent"
-                      : "text-muted-foreground hover:text-primary hover:bg-accent"
-                  )}
-                  onClick={() => setIsOpen(false)}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetId = item.href.replace('#', '');
+                    const element = document.getElementById(targetId);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsOpen(false);
+                  }}
+                  className="text-sm font-medium px-2 py-1 rounded-md transition-colors text-muted-foreground hover:text-primary hover:bg-accent cursor-pointer"
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
-              <Button variant="default" size="sm" className="mt-4" asChild>
-                <Link to="/contact">Book Free Consultation</Link>
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="mt-4"
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  setIsOpen(false);
+                }}
+              >
+                Book Free Consultation
               </Button>
             </div>
           </div>

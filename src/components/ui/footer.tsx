@@ -31,13 +31,17 @@ export function Footer() {
               Virtual-first agency providing affordable, high-quality digital services.
             </p>
             <div className="flex space-x-4">
-              <Button size="sm" variant="secondary">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
+              <Button size="sm" variant="secondary" asChild>
+                <a href="https://wa.me/251925037003" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  WhatsApp
+                </a>
               </Button>
-              <Button size="sm" variant="outline" className="text-background border-background/20 hover:bg-background/10">
-                <Mail className="h-4 w-4 mr-2" />
-                Email Us
+              <Button size="sm" variant="outline" className="text-background border-background/20 hover:bg-background/10" asChild>
+                <a href="mailto:salesmelalabs@gmail.com">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email Us
+                </a>
               </Button>
             </div>
           </div>
@@ -126,24 +130,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* CTA Banner */}
-      <div className="bg-gradient-hero">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">
-                Ready to Transform Your Business?
-              </h3>
-              <p className="text-white/80">
-                Let's build something amazing together.
-              </p>
-            </div>
-            <Button variant="secondary" size="lg" className="mt-4 md:mt-0">
-              Get Started Today
-            </Button>
-          </div>
-        </div>
-      </div>
     </footer>
   );
 }
