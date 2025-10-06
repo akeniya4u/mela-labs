@@ -2,27 +2,24 @@ import { useState } from "react";
 import { Button } from "./button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
-
 interface HeroSectionProps {
   onBookingClick?: () => void;
 }
-
-export function HeroSection({ onBookingClick }: HeroSectionProps) {
+export function HeroSection({
+  onBookingClick
+}: HeroSectionProps) {
   const scrollToBooking = () => {
     const bookingSection = document.getElementById('booking-section');
     if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
+      bookingSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Mela Labs Digital Agency Team"
-          className="w-full h-full object-cover opacity-10"
-        />
+        <img src={heroImage} alt="Mela Labs Digital Agency Team" className="w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       </div>
 
@@ -57,10 +54,7 @@ export function HeroSection({ onBookingClick }: HeroSectionProps) {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             
-            <Button variant="outline" size="lg" className="group" onClick={scrollToBooking}>
-              <ArrowRight className="mr-2 h-4 w-4" />
-              Get Started
-            </Button>
+            
           </div>
 
           {/* Stats */}
@@ -96,6 +90,5 @@ export function HeroSection({ onBookingClick }: HeroSectionProps) {
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-hero opacity-20 rounded-full blur-xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-gold opacity-20 rounded-full blur-xl animate-pulse delay-1000" />
-    </section>
-  );
+    </section>;
 }
