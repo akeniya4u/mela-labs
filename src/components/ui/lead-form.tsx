@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Button } from "./button";
 import { Card, CardContent, CardHeader, CardTitle } from "./card";
 import { Input } from "./input";
@@ -9,11 +11,22 @@ import { ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-interface LeadFormData {
-  fullName: string;
-  email: string;
-  message: string;
-}
+const leadFormSchema = z.object({
+  fullName: z.string()
+    .trim()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" }),
+  message: z.string()
+    .trim()
+    .min(10, { message: "Message must be at least 10 characters" })
+    .max(2000, { message: "Message must be less than 2000 characters" })
+});
+
+type LeadFormData = z.infer<typeof leadFormSchema>;
 
 export function LeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,15 +37,26 @@ export function LeadForm() {
     handleSubmit,
     formState: { errors },
     reset
-  } = useForm<LeadFormData>();
+  } = useForm<LeadFormData>({
+    resolver: zodResolver(leadFormSchema)
+  });
 
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true);
     
     try {
-      // For now, we'll simulate the form submission since we don't have a leads table
-      // In a real app, you'd insert into a leads table
-      console.log('Lead form data:', data);
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            full_name: data.fullName.trim(),
+            email_address: data.email.trim().toLowerCase(),
+            message: data.message.trim(),
+            source: 'website'
+          }
+        ]);
+
+      if (error) throw error;
 
       toast({
         title: "Message sent successfully!",
@@ -41,7 +65,6 @@ export function LeadForm() {
 
       reset();
     } catch (error) {
-      console.error('Error submitting lead form:', error);
       toast({
         title: "Error sending message",
         description: "Please try again or contact us directly.",
@@ -77,7 +100,7 @@ export function LeadForm() {
                 <Label htmlFor="leadFullName">Full Name</Label>
                 <Input
                   id="leadFullName"
-                  {...register("fullName", { required: "Full name is required" })}
+                  {...register("fullName")}
                   className={errors.fullName ? "border-destructive" : ""}
                 />
                 {errors.fullName && (
@@ -90,13 +113,7 @@ export function LeadForm() {
                 <Input
                   id="leadEmail"
                   type="email"
-                  {...register("email", { 
-                    required: "Email is required",
-                    pattern: {
-                      value: /^\S+@\S+$/i,
-                      message: "Invalid email address"
-                    }
-                  })}
+                  {...register("email")}
                   className={errors.email ? "border-destructive" : ""}
                 />
                 {errors.email && (
@@ -110,7 +127,7 @@ export function LeadForm() {
                   id="leadMessage"
                   rows={4}
                   placeholder="Tell us about your project, goals, or any questions you have..."
-                  {...register("message", { required: "Message is required" })}
+                  {...register("message")}
                   className={errors.message ? "border-destructive" : ""}
                 />
                 {errors.message && (

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Button } from "./button";
 import { Card, CardContent, CardHeader, CardTitle } from "./card";
 import { Input } from "./input";
@@ -12,13 +14,27 @@ import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-interface BookingFormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  address: string;
-  preferredDate: Date;
-}
+const bookingSchema = z.object({
+  fullName: z.string()
+    .trim()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" }),
+  phone: z.string()
+    .trim()
+    .min(10, { message: "Phone number must be at least 10 characters" })
+    .max(20, { message: "Phone number must be less than 20 characters" }),
+  address: z.string()
+    .trim()
+    .min(5, { message: "Address must be at least 5 characters" })
+    .max(200, { message: "Address must be less than 200 characters" }),
+  preferredDate: z.date({ required_error: "Please select a date" })
+});
+
+type BookingFormData = z.infer<typeof bookingSchema>;
 
 interface BookingFormProps {
   isOpen: boolean;
@@ -37,7 +53,9 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
     reset,
     setValue,
     watch
-  } = useForm<BookingFormData>();
+  } = useForm<BookingFormData>({
+    resolver: zodResolver(bookingSchema)
+  });
 
   const selectedDate = watch("preferredDate");
 
@@ -58,14 +76,12 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
         .from('bookings')
         .insert([
           {
-            full_name: data.fullName,
-            email_address: data.email,
-            phone_number: data.phone,
-            confirmation_number: `MELA-${Date.now()}`,
-            confirmation_pin: Math.random().toString(36).substring(2, 8).toUpperCase(),
+            full_name: data.fullName.trim(),
+            email_address: data.email.trim().toLowerCase(),
+            phone_number: data.phone.trim(),
             room_type: 'Consultation',
             check_in_date: date.toISOString().split('T')[0],
-            country: data.address
+            notes: data.address.trim()
           }
         ]);
 
@@ -76,7 +92,7 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
         description: "We'll contact you soon to confirm your consultation.",
       });
 
-      // Redirect to booking calendar (simulate)
+      // Redirect to booking calendar
       setTimeout(() => {
         window.open("https://calendly.com/melalabs", "_blank");
       }, 1000);
@@ -85,7 +101,6 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
       setDate(undefined);
       onClose();
     } catch (error) {
-      console.error('Error submitting booking:', error);
       toast({
         title: "Error submitting booking",
         description: "Please try again or contact us directly.",
@@ -113,7 +128,7 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
               <Label htmlFor="fullName">Full Name *</Label>
               <Input
                 id="fullName"
-                {...register("fullName", { required: "Full name is required" })}
+                {...register("fullName")}
                 className={errors.fullName ? "border-destructive" : ""}
               />
               {errors.fullName && (
@@ -126,13 +141,7 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
               <Input
                 id="email"
                 type="email"
-                {...register("email", { 
-                  required: "Email is required",
-                  pattern: {
-                    value: /^\S+@\S+$/i,
-                    message: "Invalid email address"
-                  }
-                })}
+                {...register("email")}
                 className={errors.email ? "border-destructive" : ""}
               />
               {errors.email && (
@@ -144,7 +153,7 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
               <Label htmlFor="phone">Phone Number *</Label>
               <Input
                 id="phone"
-                {...register("phone", { required: "Phone number is required" })}
+                {...register("phone")}
                 className={errors.phone ? "border-destructive" : ""}
               />
               {errors.phone && (
@@ -156,7 +165,7 @@ export function BookingForm({ isOpen, onClose }: BookingFormProps) {
               <Label htmlFor="address">Address *</Label>
               <Input
                 id="address"
-                {...register("address", { required: "Address is required" })}
+                {...register("address")}
                 className={errors.address ? "border-destructive" : ""}
               />
               {errors.address && (

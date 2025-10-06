@@ -18,14 +18,13 @@ export type Database = {
         Row: {
           check_in_date: string | null
           check_out_date: string | null
-          confirmation_number: string
           confirmation_pin: string
-          country: string | null
           created_at: string
           email_address: string | null
           full_name: string
           guest_count: number | null
           id: string
+          notes: string | null
           phone_number: string | null
           room_type: string
           updated_at: string
@@ -33,14 +32,13 @@ export type Database = {
         Insert: {
           check_in_date?: string | null
           check_out_date?: string | null
-          confirmation_number: string
           confirmation_pin: string
-          country?: string | null
           created_at?: string
           email_address?: string | null
           full_name: string
           guest_count?: number | null
           id?: string
+          notes?: string | null
           phone_number?: string | null
           room_type: string
           updated_at?: string
@@ -48,17 +46,43 @@ export type Database = {
         Update: {
           check_in_date?: string | null
           check_out_date?: string | null
-          confirmation_number?: string
           confirmation_pin?: string
-          country?: string | null
           created_at?: string
           email_address?: string | null
           full_name?: string
           guest_count?: number | null
           id?: string
+          notes?: string | null
           phone_number?: string | null
           room_type?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          created_at: string
+          email_address: string
+          full_name: string
+          id: string
+          message: string
+          source: string | null
+        }
+        Insert: {
+          created_at?: string
+          email_address: string
+          full_name: string
+          id?: string
+          message: string
+          source?: string | null
+        }
+        Update: {
+          created_at?: string
+          email_address?: string
+          full_name?: string
+          id?: string
+          message?: string
+          source?: string | null
         }
         Relationships: []
       }
