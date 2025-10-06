@@ -9,6 +9,7 @@ import {
   Phone,
   MapPin
 } from "lucide-react";
+import melaLabsLogo from "@/assets/mela-labs-logo.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,9 +22,11 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="h-10 w-10 rounded-lg bg-gradient-hero flex items-center justify-center">
-                <span className="text-white font-bold">ML</span>
-              </div>
+              <img 
+                src={melaLabsLogo} 
+                alt="Mela Labs Logo" 
+                className="h-10 w-10 object-contain"
+              />
               <span className="text-2xl font-bold">Mela Labs</span>
             </Link>
             <p className="text-background/70 mb-6 max-w-md">
