@@ -109,7 +109,7 @@ const categories = [
   "Business Solutions"
 ];
 
-export default function Portfolio() {
+export default function Portfolio({ onBookingClick }: { onBookingClick?: (service?: string) => void }) {
   const [selectedCategory, setSelectedCategory] = useState("All Projects");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -217,14 +217,14 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    {/* CTA */}
+                     {/* CTA */}
                     <Button 
                       variant="outline" 
                       size="sm" 
                       className="w-full group mt-4"
                       onClick={() => handleViewCaseStudy(project)}
                     >
-                      View Case Study
+                      View More Case Study
                       <ExternalLink className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -278,12 +278,12 @@ export default function Portfolio() {
             your business through our proven digital solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={() => onBookingClick?.()}>
               Start Your Project
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-              Schedule a Call
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10" onClick={() => onBookingClick?.()}>
+              Book Now
             </Button>
           </div>
         </div>

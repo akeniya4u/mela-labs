@@ -13,7 +13,11 @@ const navigation = [
   { name: "About", href: "#about" },
 ];
 
-export function Navigation() {
+interface NavigationProps {
+  onBookingClick?: () => void;
+}
+
+export function Navigation({ onBookingClick }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -61,14 +65,9 @@ export function Navigation() {
             <Button 
               variant="default" 
               size="sm"
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={onBookingClick}
             >
-              Book Free Consultation
+              Book Now
             </Button>
           </div>
 
@@ -113,14 +112,13 @@ export function Navigation() {
                 size="sm" 
                 className="mt-4"
                 onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                  if (onBookingClick) {
+                    onBookingClick();
                   }
                   setIsOpen(false);
                 }}
               >
-                Book Free Consultation
+                Book Now
               </Button>
             </div>
           </div>

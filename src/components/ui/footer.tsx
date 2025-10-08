@@ -87,7 +87,7 @@ export function Footer() {
         {/* Social Media & Copyright */}
         <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-4 mb-4 md:mb-0">
-            <a href="https://www.instagram.com/i_am_elyara" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors">
+            <a href="https://www.instagram.com/mela_labs?igsh=MW8xZ25zeWkzcG41aw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors">
               <Instagram className="h-5 w-5" />
             </a>
             <a href="https://www.linkedin.com/in/olinaf-abdisa-034151285" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors">

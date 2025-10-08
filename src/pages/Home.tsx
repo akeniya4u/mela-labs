@@ -197,19 +197,11 @@ const categories = [
   "Creative & Media"
 ];
 
-export default function Home() {
-  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+export default function Home({ onBookingClick }: { onBookingClick?: (service?: string) => void }) {
   const [selectedCategory, setSelectedCategory] = useState("Technology & AI");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showAllServices, setShowAllServices] = useState(false);
-
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById('contact');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const filteredProjects = selectedCategory === "All Projects" 
     ? projects 
@@ -226,7 +218,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Home Section */}
       <section id="home">
-        <HeroSection onBookingClick={() => setIsBookingFormOpen(true)} />
+        <HeroSection onBookingClick={() => onBookingClick?.()} />
         
         {/* Brand Story Section */}
         <section className="py-24 bg-muted/30">
@@ -323,8 +315,8 @@ export default function Home() {
                     ))}
                   </div>
                   
-                  <Button className="w-full group" onClick={scrollToBooking}>
-                    Get Started
+                  <Button className="w-full group" onClick={() => onBookingClick?.(service.title)}>
+                    Book Now
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
@@ -476,7 +468,7 @@ export default function Home() {
                 description: "Free 30-minute consultation",
                 contact: "Schedule directly",
                 action: "Book Now",
-                link: "#",
+                onClick: () => onBookingClick?.(),
                 primary: false
               }
             ].map((method, index) => (
@@ -488,16 +480,27 @@ export default function Home() {
                   <h3 className="font-semibold text-lg mb-2">{method.title}</h3>
                   <p className="text-muted-foreground text-sm mb-3">{method.description}</p>
                   <p className="font-medium text-sm mb-4">{method.contact}</p>
-                  <Button 
-                    variant={method.primary ? "default" : "outline"} 
-                    size="sm" 
-                    className="w-full"
-                    asChild
-                  >
-                    <a href={method.link} target="_blank" rel="noopener noreferrer">
+                  {method.link ? (
+                    <Button 
+                      variant={method.primary ? "default" : "outline"} 
+                      size="sm" 
+                      className="w-full"
+                      asChild
+                    >
+                      <a href={method.link} target="_blank" rel="noopener noreferrer">
+                        {method.action}
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button 
+                      variant={method.primary ? "default" : "outline"} 
+                      size="sm" 
+                      className="w-full"
+                      onClick={method.onClick}
+                    >
                       {method.action}
-                    </a>
-                  </Button>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -692,11 +695,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <BookingForm 
-        isOpen={isBookingFormOpen} 
-        onClose={() => setIsBookingFormOpen(false)} 
-      />
 
       <CaseStudyModal 
         isOpen={isModalOpen}
