@@ -9,213 +9,105 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CaseStudyModal } from "@/components/ui/case-study-modal";
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Star, 
-  Users, 
-  TrendingUp, 
-  Award, 
-  Globe, 
-  Zap, 
-  Target,
-  Heart,
-  Lightbulb,
-  Palette,
-  Code,
-  Briefcase,
-  ExternalLink,
-  Mail,
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
-  Send,
-  Instagram,
-  Linkedin,
-  Facebook,
-  Calendar
-} from "lucide-react";
-
-const services = [
-  {
-    icon: Users,
-    title: "Virtual Assistance & Operations",
-    description: "Streamline your business operations with our comprehensive virtual assistance services.",
-    features: [
-      "Executive & Administrative Assistance",
-      "Project Management & Coordination", 
-      "CRM Setup & Management",
-      "Data Entry & Processing",
-      "Customer Support Services",
-      "Workflow Automation"
-    ]
-  },
-  {
-    icon: Palette,
-    title: "Creative & Media",
-    description: "Bring your brand to life with stunning visuals and compelling creative content.",
-    features: [
-      "Brand Identity & Logo Design",
-      "Social Media Graphics & Templates",
-      "Print & Digital Marketing Materials", 
-      "Video Editing & Motion Graphics",
-      "UI/UX Design for Web & Mobile",
-      "Photography & Image Editing"
-    ]
-  },
-  {
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    description: "Grow your online presence and reach your target audience effectively.",
-    features: [
-      "Social Media Management",
-      "Content Marketing Strategy",
-      "Paid Advertising (Facebook, Google, LinkedIn)",
-      "Search Engine Optimization (SEO)",
-      "Email Marketing Automation",
-      "Analytics & Performance Tracking"
-    ]
-  },
-  {
-    icon: Code,
-    title: "Technology & AI",
-    description: "Leverage cutting-edge technology to automate and optimize your business processes.",
-    features: [
-      "Website Development (WordPress, Shopify, Webflow)",
-      "E-commerce Store Setup & Optimization",
-      "Custom Web Applications",
-      "Chatbot & AI Assistant Development",
-      "CRM/ERP System Integration",
-      "Workflow & Process Automation"
-    ]
-  },
-  {
-    icon: Briefcase,
-    title: "Business Solutions",
-    description: "Strategic business services to help you make informed decisions and grow sustainably.",
-    features: [
-      "Complete Branding Packages",
-      "Investor Pitch Decks",
-      "Business Plan Development",
-      "Market Research & Analysis",
-      "Data Analytics & Reporting",
-      "Online Reputation Management"
-    ]
-  }
-];
-
-const projects = [
-  {
-    title: "E-commerce Platform Redesign",
-    category: "Technology & AI",
-    icon: Code,
-    description: "Complete e-commerce platform overhaul with AI-powered recommendations and automated inventory management.",
-    results: [
-      "300% increase in conversion rate",
-      "50% reduction in cart abandonment",
-      "Automated inventory tracking"
-    ],
-    technologies: ["Shopify Plus", "AI/ML", "Custom APIs"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "SaaS Brand Identity & Marketing",
-    category: "Creative & Media",
-    icon: Palette,
-    description: "Complete brand identity creation and multi-channel marketing campaign for a B2B SaaS startup.",
-    results: [
-      "Brand recognition increased 400%",
-      "Generated 1000+ qualified leads",
-      "Social engagement up 250%"
-    ],
-    technologies: ["Brand Strategy", "Social Media", "Content Marketing"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Digital Marketing Campaign",
-    category: "Digital Marketing", 
-    icon: TrendingUp,
-    description: "Multi-platform digital marketing strategy for healthcare startup targeting millennial professionals.",
-    results: [
-      "500% ROI on ad spend",
-      "Generated $2M in revenue",
-      "Built audience of 50K+"
-    ],
-    technologies: ["Google Ads", "Facebook Ads", "SEO", "Email Marketing"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Virtual Operations Setup",
-    category: "Virtual Assistance",
-    icon: Users,
-    description: "Complete virtual operations infrastructure for a growing consultancy firm with global clients.",
-    results: [
-      "80% reduction in operational costs",
-      "Improved client satisfaction 95%",
-      "Streamlined workflows"
-    ],
-    technologies: ["CRM Setup", "Process Automation", "Project Management"],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Business Strategy & Pitch Deck",
-    category: "Business Solutions",
-    icon: Briefcase,
-    description: "Strategic business planning and investor pitch deck for Series A funding round.",
-    results: [
-      "Successfully raised $5M",
-      "Secured 3 strategic partnerships",
-      "Validated market strategy"
-    ],
-    technologies: ["Business Strategy", "Financial Modeling", "Market Research"],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Mobile App UI/UX Design",
-    category: "Creative & Media",
-    icon: Palette,
-    description: "User experience design for a fitness tracking mobile application with social features.",
-    results: [
-      "4.8★ app store rating",
-      "40% increase in user retention",
-      "Featured by Apple & Google"
-    ],
-    technologies: ["UI/UX Design", "User Research", "Prototyping"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-    link: "#"
-  }
-];
-
-const categories = [
-  "Technology & AI",
-  "Creative & Media"
-];
-
-export default function Home({ onBookingClick }: { onBookingClick?: (service?: string) => void }) {
+import { ArrowRight, CheckCircle, Star, Users, TrendingUp, Award, Globe, Zap, Target, Heart, Lightbulb, Palette, Code, Briefcase, ExternalLink, Mail, Phone, MessageCircle, MapPin, Clock, Send, Instagram, Linkedin, Facebook, Calendar } from "lucide-react";
+const services = [{
+  icon: Users,
+  title: "Virtual Assistance & Operations",
+  description: "Streamline your business operations with our comprehensive virtual assistance services.",
+  features: ["Executive & Administrative Assistance", "Project Management & Coordination", "CRM Setup & Management", "Data Entry & Processing", "Customer Support Services", "Workflow Automation"]
+}, {
+  icon: Palette,
+  title: "Creative & Media",
+  description: "Bring your brand to life with stunning visuals and compelling creative content.",
+  features: ["Brand Identity & Logo Design", "Social Media Graphics & Templates", "Print & Digital Marketing Materials", "Video Editing & Motion Graphics", "UI/UX Design for Web & Mobile", "Photography & Image Editing"]
+}, {
+  icon: TrendingUp,
+  title: "Digital Marketing",
+  description: "Grow your online presence and reach your target audience effectively.",
+  features: ["Social Media Management", "Content Marketing Strategy", "Paid Advertising (Facebook, Google, LinkedIn)", "Search Engine Optimization (SEO)", "Email Marketing Automation", "Analytics & Performance Tracking"]
+}, {
+  icon: Code,
+  title: "Technology & AI",
+  description: "Leverage cutting-edge technology to automate and optimize your business processes.",
+  features: ["Website Development (WordPress, Shopify, Webflow)", "E-commerce Store Setup & Optimization", "Custom Web Applications", "Chatbot & AI Assistant Development", "CRM/ERP System Integration", "Workflow & Process Automation"]
+}, {
+  icon: Briefcase,
+  title: "Business Solutions",
+  description: "Strategic business services to help you make informed decisions and grow sustainably.",
+  features: ["Complete Branding Packages", "Investor Pitch Decks", "Business Plan Development", "Market Research & Analysis", "Data Analytics & Reporting", "Online Reputation Management"]
+}];
+const projects = [{
+  title: "E-commerce Platform Redesign",
+  category: "Technology & AI",
+  icon: Code,
+  description: "Complete e-commerce platform overhaul with AI-powered recommendations and automated inventory management.",
+  results: ["300% increase in conversion rate", "50% reduction in cart abandonment", "Automated inventory tracking"],
+  technologies: ["Shopify Plus", "AI/ML", "Custom APIs"],
+  image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "SaaS Brand Identity & Marketing",
+  category: "Creative & Media",
+  icon: Palette,
+  description: "Complete brand identity creation and multi-channel marketing campaign for a B2B SaaS startup.",
+  results: ["Brand recognition increased 400%", "Generated 1000+ qualified leads", "Social engagement up 250%"],
+  technologies: ["Brand Strategy", "Social Media", "Content Marketing"],
+  image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Digital Marketing Campaign",
+  category: "Digital Marketing",
+  icon: TrendingUp,
+  description: "Multi-platform digital marketing strategy for healthcare startup targeting millennial professionals.",
+  results: ["500% ROI on ad spend", "Generated $2M in revenue", "Built audience of 50K+"],
+  technologies: ["Google Ads", "Facebook Ads", "SEO", "Email Marketing"],
+  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Virtual Operations Setup",
+  category: "Virtual Assistance",
+  icon: Users,
+  description: "Complete virtual operations infrastructure for a growing consultancy firm with global clients.",
+  results: ["80% reduction in operational costs", "Improved client satisfaction 95%", "Streamlined workflows"],
+  technologies: ["CRM Setup", "Process Automation", "Project Management"],
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Business Strategy & Pitch Deck",
+  category: "Business Solutions",
+  icon: Briefcase,
+  description: "Strategic business planning and investor pitch deck for Series A funding round.",
+  results: ["Successfully raised $5M", "Secured 3 strategic partnerships", "Validated market strategy"],
+  technologies: ["Business Strategy", "Financial Modeling", "Market Research"],
+  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Mobile App UI/UX Design",
+  category: "Creative & Media",
+  icon: Palette,
+  description: "User experience design for a fitness tracking mobile application with social features.",
+  results: ["4.8★ app store rating", "40% increase in user retention", "Featured by Apple & Google"],
+  technologies: ["UI/UX Design", "User Research", "Prototyping"],
+  image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+  link: "#"
+}];
+const categories = ["Technology & AI", "Creative & Media"];
+export default function Home({
+  onBookingClick
+}: {
+  onBookingClick?: (service?: string) => void;
+}) {
   const [selectedCategory, setSelectedCategory] = useState("Technology & AI");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showAllServices, setShowAllServices] = useState(false);
-
-  const filteredProjects = selectedCategory === "All Projects" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
+  const filteredProjects = selectedCategory === "All Projects" ? projects : projects.filter(project => project.category === selectedCategory);
   const handleViewCaseStudy = (project: typeof projects[0]) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
-
   const displayedServices = showAllServices ? services : services.slice(0, 3);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Home Section */}
       <section id="home">
         <HeroSection onBookingClick={() => onBookingClick?.()} />
@@ -291,8 +183,7 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedServices.map((service, index) => (
-              <Card key={service.title} className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
+            {displayedServices.map((service, index) => <Card key={service.title} className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
                 <CardHeader className="pb-4">
                   <div className="w-16 h-16 rounded-xl bg-gradient-hero flex items-center justify-center group-hover:scale-110 transition-transform duration-300 mb-4">
                     <service.icon className="h-8 w-8 text-white" />
@@ -307,12 +198,10 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                 
                 <CardContent>
                   <div className="space-y-2 mb-6">
-                    {service.features.map((feature, i) => (
-                      <div key={i} className="flex items-start text-sm">
+                    {service.features.map((feature, i) => <div key={i} className="flex items-start text-sm">
                         <CheckCircle className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                   
                   <Button className="w-full group" onClick={() => onBookingClick?.(service.title)}>
@@ -320,22 +209,15 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
-          {!showAllServices && (
-            <div className="text-center mt-12">
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => setShowAllServices(true)}
-              >
+          {!showAllServices && <div className="text-center mt-12">
+              <Button variant="outline" size="lg" onClick={() => setShowAllServices(true)}>
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
@@ -355,28 +237,16 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
 
           {/* Filter Categories */}
           <div className="flex justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={category === selectedCategory ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-              >
+            {categories.map(category => <Button key={category} variant={category === selectedCategory ? "default" : "outline"} size="sm" onClick={() => setSelectedCategory(category)}>
                 {category}
-              </Button>
-            ))}
+              </Button>)}
           </div>
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.slice(0, 6).map((project, index) => (
-              <Card key={index} className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            {filteredProjects.slice(0, 6).map((project, index) => <Card key={index} className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 
                 <CardHeader className="pb-4">
@@ -400,29 +270,21 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                     <div>
                       <h4 className="font-medium text-sm mb-2 text-primary">Key Results</h4>
                       <ul className="space-y-1">
-                        {project.results.map((result, i) => (
-                          <li key={i} className="text-xs text-muted-foreground flex items-center">
+                        {project.results.map((result, i) => <li key={i} className="text-xs text-muted-foreground flex items-center">
                             <div className="w-1 h-1 rounded-full bg-primary mr-2" />
                             {result}
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </div>
 
                     {/* CTA */}
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full group mt-4"
-                      onClick={() => handleViewCaseStudy(project)}
-                    >
+                    <Button variant="outline" size="sm" className="w-full group mt-4" onClick={() => handleViewCaseStudy(project)}>
                       View Case Study
                       <ExternalLink className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -443,36 +305,31 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
 
           {/* Contact Methods */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                icon: MessageCircle,
-                title: "WhatsApp",
-                description: "Quick responses for urgent inquiries",
-                contact: "+251925037003",
-                action: "Chat Now",
-                link: "https://wa.me/251925037003",
-                primary: true
-              },
-              {
-                icon: Mail,
-                title: "Email",
-                description: "Detailed project discussions",
-                contact: "salesmelalabs@gmail.com", 
-                action: "Send Email",
-                link: "mailto:salesmelalabs@gmail.com",
-                primary: false
-              },
-              {
-                icon: Calendar,
-                title: "Book a Call",
-                description: "Free 30-minute consultation",
-                contact: "Schedule directly",
-                action: "Book Now",
-                onClick: () => onBookingClick?.(),
-                primary: false
-              }
-            ].map((method, index) => (
-              <Card key={index} className={`p-6 text-center hover:shadow-soft transition-all duration-300 ${method.primary ? 'ring-2 ring-primary/20' : ''}`}>
+            {[{
+            icon: MessageCircle,
+            title: "WhatsApp",
+            description: "Quick responses for urgent inquiries",
+            contact: "+251925037003",
+            action: "Chat Now",
+            link: "https://wa.me/251925037003",
+            primary: true
+          }, {
+            icon: Mail,
+            title: "Email",
+            description: "Detailed project discussions",
+            contact: "salesmelalabs@gmail.com",
+            action: "Send Email",
+            link: "mailto:salesmelalabs@gmail.com",
+            primary: false
+          }, {
+            icon: Calendar,
+            title: "Book a Call",
+            description: "Free 30-minute consultation",
+            contact: "Schedule directly",
+            action: "Book Now",
+            onClick: () => onBookingClick?.(),
+            primary: false
+          }].map((method, index) => <Card key={index} className={`p-6 text-center hover:shadow-soft transition-all duration-300 ${method.primary ? 'ring-2 ring-primary/20' : ''}`}>
                 <CardContent className="p-0">
                   <div className={`w-16 h-16 rounded-full ${method.primary ? 'bg-gradient-hero' : 'bg-muted'} flex items-center justify-center mx-auto mb-4`}>
                     <method.icon className={`h-8 w-8 ${method.primary ? 'text-white' : 'text-muted-foreground'}`} />
@@ -480,80 +337,19 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                   <h3 className="font-semibold text-lg mb-2">{method.title}</h3>
                   <p className="text-muted-foreground text-sm mb-3">{method.description}</p>
                   <p className="font-medium text-sm mb-4">{method.contact}</p>
-                  {method.link ? (
-                    <Button 
-                      variant={method.primary ? "default" : "outline"} 
-                      size="sm" 
-                      className="w-full"
-                      asChild
-                    >
+                  {method.link ? <Button variant={method.primary ? "default" : "outline"} size="sm" className="w-full" asChild>
                       <a href={method.link} target="_blank" rel="noopener noreferrer">
                         {method.action}
                       </a>
-                    </Button>
-                  ) : (
-                    <Button 
-                      variant={method.primary ? "default" : "outline"} 
-                      size="sm" 
-                      className="w-full"
-                      onClick={method.onClick}
-                    >
+                    </Button> : <Button variant={method.primary ? "default" : "outline"} size="sm" className="w-full" onClick={method.onClick}>
                       {method.action}
-                    </Button>
-                  )}
+                    </Button>}
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           {/* Contact Form */}
-          <Card className="p-8 max-w-2xl mx-auto">
-            <CardHeader className="px-0 pt-0">
-              <CardTitle className="text-2xl font-bold">Get Started Today</CardTitle>
-              <p className="text-muted-foreground">
-                Fill out this form and we'll get back to you within 24 hours with a customized proposal.
-              </p>
-            </CardHeader>
-            <CardContent className="px-0 pb-0">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input id="firstName" placeholder="John" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input id="lastName" placeholder="Doe" required />
-                  </div>
-                </div>
-                
-                <div>
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Project Details *</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us about your project goals, timeline, and any specific requirements..."
-                    rows={4}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" className="w-full" size="lg">
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          
         </div>
       </section>
 
@@ -597,13 +393,23 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
             </div>
             
             <div className="grid grid-cols-2 gap-6">
-              {[
-                { number: "100+", label: "Projects Completed", icon: Target },
-                { number: "50+", label: "Happy Clients", icon: Heart },
-                { number: "24/7", label: "Global Support", icon: Globe },
-                { number: "15+", label: "Service Areas", icon: Zap },
-              ].map((stat, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-soft transition-all duration-300">
+              {[{
+              number: "100+",
+              label: "Projects Completed",
+              icon: Target
+            }, {
+              number: "50+",
+              label: "Happy Clients",
+              icon: Heart
+            }, {
+              number: "24/7",
+              label: "Global Support",
+              icon: Globe
+            }, {
+              number: "15+",
+              label: "Service Areas",
+              icon: Zap
+            }].map((stat, index) => <Card key={index} className="p-6 text-center hover:shadow-soft transition-all duration-300">
                   <CardContent className="p-0">
                     <stat.icon className="h-8 w-8 text-primary mx-auto mb-4" />
                     <div className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
@@ -611,8 +417,7 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                     </div>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
@@ -628,21 +433,26 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { number: "100+", label: "Projects Delivered" },
-                { number: "$100K+", label: "Client Revenue Generated" },
-                { number: "100%", label: "Average ROI Increase" },
-                { number: "98%", label: "Client Satisfaction Rate" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
+              {[{
+              number: "100+",
+              label: "Projects Delivered"
+            }, {
+              number: "$100K+",
+              label: "Client Revenue Generated"
+            }, {
+              number: "100%",
+              label: "Average ROI Increase"
+            }, {
+              number: "98%",
+              label: "Client Satisfaction Rate"
+            }].map((stat, index) => <div key={index} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
                     {stat.number}
                   </div>
                   <div className="text-sm text-muted-foreground">
                     {stat.label}
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -656,32 +466,27 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Sarah Johnson",
-                  role: "CEO, TechStart",
-                  content: "Mela Labs transformed our digital presence completely. The ROI was incredible - we saw 300% growth in just 6 months.",
-                  rating: 5
-                },
-                {
-                  name: "Michael Chen",
-                  role: "Founder, E-commerce Plus",
-                  content: "Professional, efficient, and results-driven. They delivered beyond our expectations while staying within budget.",
-                  rating: 5
-                },
-                {
-                  name: "Emily Rodriguez",
-                  role: "Marketing Director",
-                  content: "The virtual collaboration was seamless. It felt like they were part of our team from day one.",
-                  rating: 5
-                }
-              ].map((testimonial, index) => (
-                <Card key={index} className="text-center">
+              {[{
+              name: "Sarah Johnson",
+              role: "CEO, TechStart",
+              content: "Mela Labs transformed our digital presence completely. The ROI was incredible - we saw 300% growth in just 6 months.",
+              rating: 5
+            }, {
+              name: "Michael Chen",
+              role: "Founder, E-commerce Plus",
+              content: "Professional, efficient, and results-driven. They delivered beyond our expectations while staying within budget.",
+              rating: 5
+            }, {
+              name: "Emily Rodriguez",
+              role: "Marketing Director",
+              content: "The virtual collaboration was seamless. It felt like they were part of our team from day one.",
+              rating: 5
+            }].map((testimonial, index) => <Card key={index} className="text-center">
                   <CardHeader>
                     <div className="flex justify-center mb-2">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                      ))}
+                      {Array.from({
+                    length: testimonial.rating
+                  }).map((_, i) => <Star key={i} className="h-4 w-4 fill-primary text-primary" />)}
                     </div>
                     <CardTitle className="text-lg">{testimonial.name}</CardTitle>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
@@ -689,18 +494,12 @@ export default function Home({ onBookingClick }: { onBookingClick?: (service?: s
                   <CardContent>
                     <p className="text-muted-foreground italic">"{testimonial.content}"</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
       </section>
 
-      <CaseStudyModal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        project={selectedProject}
-      />
-    </div>
-  );
+      <CaseStudyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} project={selectedProject} />
+    </div>;
 }
