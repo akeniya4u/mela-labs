@@ -90,14 +90,9 @@ export function BookingForm({ isOpen, onClose, preselectedService }: BookingForm
       if (error) throw error;
 
       toast({
-        title: "Booking submitted successfully!",
-        description: "We'll contact you soon to confirm your consultation.",
+        title: "Thank you for your booking!",
+        description: "We will contact you soon to confirm your consultation.",
       });
-
-      // Redirect to booking calendar
-      setTimeout(() => {
-        window.open("https://calendly.com/melalabs", "_blank");
-      }, 1000);
 
       reset();
       setDate(undefined);
