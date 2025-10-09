@@ -10,6 +10,7 @@ import { BookingForm } from "@/components/ui/booking-form";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
+import HotelBooking from "./pages/HotelBooking";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +33,8 @@ const App = () => {
             <Navigation onBookingClick={() => openBookingForm()} />
             <main className="flex-1">
               <Routes>
-                <Route path="/" element={<Home onBookingClick={openBookingForm} />} />
+                <Route path="/" element={<HotelBooking />} />
+                <Route path="/mela-labs" element={<Home onBookingClick={openBookingForm} />} />
                 <Route path="/portfolio" element={<Portfolio onBookingClick={openBookingForm} />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
