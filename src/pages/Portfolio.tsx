@@ -15,97 +15,97 @@ import {
 
 const projects = [
   {
-    title: "E-commerce Platform Redesign",
-    category: "Technology & AI",
-    icon: Code,
-    description: "Complete e-commerce platform overhaul with AI-powered recommendations and automated inventory management.",
+    title: "Automated Task Management System",
+    category: "Virtual Assistance & Operations",
+    icon: Users,
+    description: "Built a comprehensive task automation and workflow optimization system for a consultancy firm managing 50+ clients.",
     results: [
-      "300% increase in conversion rate",
-      "50% reduction in cart abandonment",
-      "Automated inventory tracking"
+      "80% reduction in manual tasks",
+      "Improved team productivity by 150%",
+      "Streamlined client communications"
     ],
-    technologies: ["Shopify Plus", "AI/ML", "Custom APIs"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    technologies: ["CRM Setup", "Process Automation", "Project Management Tools"],
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "SaaS Brand Identity & Marketing",
+    title: "Brand Identity & Video Campaign",
     category: "Creative & Media",
     icon: Palette,
-    description: "Complete brand identity creation and multi-channel marketing campaign for a B2B SaaS startup.",
+    description: "Complete brand redesign with promotional video series and social media content for a tech startup.",
     results: [
       "Brand recognition increased 400%",
-      "Generated 1000+ qualified leads",
+      "Videos reached 500K+ views",
       "Social engagement up 250%"
     ],
-    technologies: ["Brand Strategy", "Social Media", "Content Marketing"],
+    technologies: ["Brand Design", "Video Editing", "Content Creation"],
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Digital Marketing Campaign",
-    category: "Digital Marketing", 
+    title: "Multi-Channel Ad Campaign",
+    category: "Digital Marketing",
     icon: TrendingUp,
-    description: "Multi-platform digital marketing strategy for healthcare startup targeting millennial professionals.",
+    description: "Data-driven advertising campaign with analytics dashboard and audience targeting for e-commerce brand.",
     results: [
       "500% ROI on ad spend",
       "Generated $2M in revenue",
       "Built audience of 50K+"
     ],
-    technologies: ["Google Ads", "Facebook Ads", "SEO", "Email Marketing"],
+    technologies: ["Google Ads", "Facebook Ads", "Analytics Dashboard"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Virtual Operations Setup",
-    category: "Virtual Assistance",
-    icon: Users,
-    description: "Complete virtual operations infrastructure for a growing consultancy firm with global clients.",
+    title: "AI-Powered Chatbot & Web Automation",
+    category: "Technology & AI",
+    icon: Code,
+    description: "Custom chatbot with AI-assisted workflows and web automation tools for customer service optimization.",
     results: [
-      "80% reduction in operational costs",
-      "Improved client satisfaction 95%",
-      "Streamlined workflows"
+      "90% reduction in response time",
+      "Automated 70% of support queries",
+      "Customer satisfaction up 85%"
     ],
-    technologies: ["CRM Setup", "Process Automation", "Project Management"],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    technologies: ["AI/ML", "Chatbot Development", "Web Automation"],
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Business Strategy & Pitch Deck",
+    title: "Client Dashboard & Reporting System",
     category: "Business Solutions",
     icon: Briefcase,
-    description: "Strategic business planning and investor pitch deck for Series A funding round.",
+    description: "Business intelligence dashboard with automated reporting and process optimization tools for data-driven decisions.",
     results: [
-      "Successfully raised $5M",
-      "Secured 3 strategic partnerships",
-      "Validated market strategy"
+      "Real-time insights enabled",
+      "Report generation time cut by 75%",
+      "Improved decision-making speed"
     ],
-    technologies: ["Business Strategy", "Financial Modeling", "Market Research"],
+    technologies: ["Business Intelligence", "Dashboard Design", "Data Analytics"],
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Mobile App UI/UX Design",
+    title: "Social Media Content Strategy",
     category: "Creative & Media",
     icon: Palette,
-    description: "User experience design for a fitness tracking mobile application with social features.",
+    description: "Comprehensive content creation and design system for consistent brand presence across all platforms.",
     results: [
-      "4.8★ app store rating",
-      "40% increase in user retention",
-      "Featured by Apple & Google"
+      "Content output increased 300%",
+      "Follower growth of 15K in 3 months",
+      "Engagement rate up 180%"
     ],
-    technologies: ["UI/UX Design", "User Research", "Prototyping"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+    technologies: ["Graphic Design", "Content Strategy", "Social Media Management"],
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
     link: "#"
   }
 ];
 
 const categories = [
   "All Projects",
-  "Technology & AI",
-  "Creative & Media", 
+  "Virtual Assistance & Operations",
+  "Creative & Media",
   "Digital Marketing",
-  "Virtual Assistance",
+  "Technology & AI",
   "Business Solutions"
 ];
 

@@ -34,11 +34,10 @@ export function HeroSection({
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            Book Your Digital Project with{" "}
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Smart Solutions.
+              Mela Labs
             </span>
-            <br />
-            <span className="text-foreground">Global Impact.</span>
           </h1>
 
           {/* Subheadline */}
