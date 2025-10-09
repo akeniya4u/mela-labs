@@ -317,9 +317,9 @@ export default function Home({
             icon: Mail,
             title: "Email",
             description: "Detailed project discussions",
-            contact: "salesmelalabs@gmail.com",
+            contact: "olinaftesfayea@gmail.com",
             action: "Send Email",
-            link: "mailto:salesmelalabs@gmail.com",
+            link: "mailto:olinaftesfayea@gmail.com",
             primary: false
           }, {
             icon: Calendar,
