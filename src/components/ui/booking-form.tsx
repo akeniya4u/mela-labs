@@ -85,7 +85,7 @@ export function BookingForm({ isOpen, onClose, preselectedService }: BookingForm
       };
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw2Udm7oggA6cBsd8NO564kG2iVSwQuorRTFC7iQqLNsV5hMRerpdhLGKapl1fHa5zW/exec",
+        "https://script.google.com/macros/s/AKfycbzwuuocap2bp8bPt2L76mtDI99JVU0Km5pExm9GTG5OQfepxvRwrydC96MERwmpKtP6/exec",
         {
           method: "POST",
           mode: "no-cors",
