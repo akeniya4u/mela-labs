@@ -15,87 +15,73 @@ import {
 
 const projects = [
   {
-    title: "Automated Task Management System",
+    title: "Virtual Assistance & Operations",
     category: "Virtual Assistance & Operations",
     icon: Users,
-    description: "Built a comprehensive task automation and workflow optimization system for a consultancy firm managing 50+ clients.",
+    description: "Complete task management, scheduling, and workflow optimization system for growing businesses.",
     results: [
-      "80% reduction in manual tasks",
+      "80% reduction in manual administrative tasks",
       "Improved team productivity by 150%",
-      "Streamlined client communications"
+      "Streamlined client communications across all channels"
     ],
-    technologies: ["CRM Setup", "Process Automation", "Project Management Tools"],
+    technologies: ["Executive Assistance", "CRM Setup", "Workflow Automation", "Project Management"],
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Brand Identity & Video Campaign",
-    category: "Creative & Media",
-    icon: Palette,
-    description: "Complete brand redesign with promotional video series and social media content for a tech startup.",
-    results: [
-      "Brand recognition increased 400%",
-      "Videos reached 500K+ views",
-      "Social engagement up 250%"
-    ],
-    technologies: ["Brand Design", "Video Editing", "Content Creation"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Multi-Channel Ad Campaign",
+    title: "Paid Advertising Campaigns",
     category: "Digital Marketing",
     icon: TrendingUp,
-    description: "Data-driven advertising campaign with analytics dashboard and audience targeting for e-commerce brand.",
+    description: "Targeted advertising campaigns across Facebook, Google, and LinkedIn that drive measurable business results.",
     results: [
       "500% ROI on ad spend",
-      "Generated $2M in revenue",
-      "Built audience of 50K+"
+      "Generated $2M in revenue within 6 months",
+      "Built qualified audience of 50K+ prospects"
     ],
-    technologies: ["Google Ads", "Facebook Ads", "Analytics Dashboard"],
+    technologies: ["Facebook Ads", "Google Ads", "LinkedIn Ads", "Analytics & Tracking"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "AI-Powered Chatbot & Web Automation",
+    title: "Business Automation Systems",
     category: "Technology & AI",
     icon: Code,
-    description: "Custom chatbot with AI-assisted workflows and web automation tools for customer service optimization.",
+    description: "System setup and automation solutions that save time and dramatically improve operational efficiency.",
     results: [
-      "90% reduction in response time",
-      "Automated 70% of support queries",
-      "Customer satisfaction up 85%"
+      "90% reduction in repetitive tasks",
+      "Automated 70% of manual workflows",
+      "Saved 40+ hours per week in operations time"
     ],
-    technologies: ["AI/ML", "Chatbot Development", "Web Automation"],
+    technologies: ["Zapier", "Make.com", "API Integration", "Process Automation"],
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Client Dashboard & Reporting System",
-    category: "Business Solutions",
-    icon: Briefcase,
-    description: "Business intelligence dashboard with automated reporting and process optimization tools for data-driven decisions.",
+    title: "AI Consulting & Integration",
+    category: "Technology & AI",
+    icon: Code,
+    description: "Smart AI solutions for digital productivity, including chatbots, AI assistants, and intelligent automation.",
     results: [
-      "Real-time insights enabled",
-      "Report generation time cut by 75%",
-      "Improved decision-making speed"
+      "85% increase in customer response speed",
+      "Automated 60% of customer support queries",
+      "Enhanced decision-making with AI insights"
     ],
-    technologies: ["Business Intelligence", "Dashboard Design", "Data Analytics"],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    technologies: ["AI/ML Integration", "Chatbot Development", "AI Workflow Automation", "Custom AI Solutions"],
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
     link: "#"
   },
   {
-    title: "Social Media Content Strategy",
-    category: "Creative & Media",
-    icon: Palette,
-    description: "Comprehensive content creation and design system for consistent brand presence across all platforms.",
+    title: "Website Development",
+    category: "Technology & AI",
+    icon: Code,
+    description: "Responsive, high-performance websites for businesses and startups built with modern technologies.",
     results: [
-      "Content output increased 300%",
-      "Follower growth of 15K in 3 months",
-      "Engagement rate up 180%"
+      "Mobile-first responsive design",
+      "50% faster page load times",
+      "300% increase in lead conversions"
     ],
-    technologies: ["Graphic Design", "Content Strategy", "Social Media Management"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+    technologies: ["React", "WordPress", "Shopify", "Custom Development", "SEO Optimization"],
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
     link: "#"
   }
 ];
@@ -103,10 +89,8 @@ const projects = [
 const categories = [
   "All Projects",
   "Virtual Assistance & Operations",
-  "Creative & Media",
   "Digital Marketing",
-  "Technology & AI",
-  "Business Solutions"
+  "Technology & AI"
 ];
 
 export default function Portfolio({ onBookingClick }: { onBookingClick?: (service?: string) => void }) {
