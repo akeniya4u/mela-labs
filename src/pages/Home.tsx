@@ -46,6 +46,15 @@ const projects = [{
   image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
   link: "#"
 }, {
+  title: "AI-Powered Chatbot Development",
+  category: "Technology & AI",
+  icon: Code,
+  description: "Custom AI chatbot with natural language processing for 24/7 customer support automation.",
+  results: ["90% reduction in response time", "Automated 70% of support queries", "Customer satisfaction up 85%"],
+  technologies: ["AI/ML", "Chatbot Development", "NLP"],
+  image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+  link: "#"
+}, {
   title: "SaaS Brand Identity & Marketing",
   category: "Creative & Media",
   icon: Palette,
@@ -55,33 +64,6 @@ const projects = [{
   image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
   link: "#"
 }, {
-  title: "Digital Marketing Campaign",
-  category: "Digital Marketing",
-  icon: TrendingUp,
-  description: "Multi-platform digital marketing strategy for healthcare startup targeting millennial professionals.",
-  results: ["500% ROI on ad spend", "Generated $2M in revenue", "Built audience of 50K+"],
-  technologies: ["Google Ads", "Facebook Ads", "SEO", "Email Marketing"],
-  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-  link: "#"
-}, {
-  title: "Virtual Operations Setup",
-  category: "Virtual Assistance",
-  icon: Users,
-  description: "Complete virtual operations infrastructure for a growing consultancy firm with global clients.",
-  results: ["80% reduction in operational costs", "Improved client satisfaction 95%", "Streamlined workflows"],
-  technologies: ["CRM Setup", "Process Automation", "Project Management"],
-  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-  link: "#"
-}, {
-  title: "Business Strategy & Pitch Deck",
-  category: "Business Solutions",
-  icon: Briefcase,
-  description: "Strategic business planning and investor pitch deck for Series A funding round.",
-  results: ["Successfully raised $5M", "Secured 3 strategic partnerships", "Validated market strategy"],
-  technologies: ["Business Strategy", "Financial Modeling", "Market Research"],
-  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-  link: "#"
-}, {
   title: "Mobile App UI/UX Design",
   category: "Creative & Media",
   icon: Palette,
@@ -89,6 +71,42 @@ const projects = [{
   results: ["4.8★ app store rating", "40% increase in user retention", "Featured by Apple & Google"],
   technologies: ["UI/UX Design", "User Research", "Prototyping"],
   image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Multi-Channel Ad Campaign",
+  category: "Digital Marketing",
+  icon: TrendingUp,
+  description: "Data-driven advertising campaign across Facebook, Google, and LinkedIn for e-commerce growth.",
+  results: ["500% ROI on ad spend", "Generated $2M in revenue", "Built audience of 50K+"],
+  technologies: ["Google Ads", "Facebook Ads", "LinkedIn Ads", "Analytics"],
+  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "SEO & Content Marketing Strategy",
+  category: "Digital Marketing",
+  icon: TrendingUp,
+  description: "Comprehensive SEO optimization and content strategy that tripled organic traffic in 6 months.",
+  results: ["300% increase in organic traffic", "First page rankings for 50+ keywords", "Generated 500+ qualified leads"],
+  technologies: ["SEO", "Content Marketing", "Analytics", "Link Building"],
+  image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Virtual Operations Setup",
+  category: "Virtual Assistance & Operations",
+  icon: Users,
+  description: "Complete virtual operations infrastructure for a growing consultancy firm with global clients.",
+  results: ["80% reduction in operational costs", "Improved client satisfaction to 95%", "Streamlined all workflows"],
+  technologies: ["CRM Setup", "Process Automation", "Project Management"],
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+  link: "#"
+}, {
+  title: "Executive Virtual Assistance Program",
+  category: "Virtual Assistance & Operations",
+  icon: Users,
+  description: "Dedicated virtual assistance services for C-suite executives including scheduling, email management, and task coordination.",
+  results: ["Saved 30+ hours per week for executives", "100% meeting attendance rate", "Zero scheduling conflicts"],
+  technologies: ["Calendar Management", "Email Management", "Task Coordination", "CRM"],
+  image: "https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=600&h=400&fit=crop",
   link: "#"
 }];
 const categories = ["Technology & AI", "Creative & Media", "Digital Marketing", "Virtual Assistance & Operations"];
