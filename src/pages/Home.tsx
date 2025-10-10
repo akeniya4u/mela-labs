@@ -518,6 +518,6 @@ export default function Home({
         </div>
       </section>
 
-      <CaseStudyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} project={selectedProject} />
+      <CaseStudyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onBookingClick={onBookingClick} project={selectedProject} />
     </div>;
 }

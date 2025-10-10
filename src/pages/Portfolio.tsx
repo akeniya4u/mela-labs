@@ -276,6 +276,7 @@ export default function Portfolio({ onBookingClick }: { onBookingClick?: (servic
       <CaseStudyModal 
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        onBookingClick={onBookingClick}
         project={selectedProject}
       />
     </div>

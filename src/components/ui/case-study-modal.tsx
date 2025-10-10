@@ -6,6 +6,7 @@ import { X, ExternalLink, Calendar, TrendingUp, Users } from "lucide-react";
 interface CaseStudyModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onBookingClick?: () => void;
   project: {
     title: string;
     category: string;
@@ -16,7 +17,15 @@ interface CaseStudyModalProps {
   } | null;
 }
 
-export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {
+export function CaseStudyModal({ isOpen, onClose, onBookingClick, project }: CaseStudyModalProps) {
+  const handleBookingClick = () => {
+    onClose();
+    const bookingSection = document.getElementById('booking-section');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    onBookingClick?.();
+  };
   if (!isOpen || !project) return null;
 
   return (
@@ -124,11 +133,11 @@ export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
-            <Button className="flex-1 group">
+            <Button className="flex-1 group" onClick={handleBookingClick}>
               Start Your Project
               <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" className="flex-1">
+            <Button variant="outline" className="flex-1" onClick={onClose}>
               View More Case Studies
             </Button>
           </div>
