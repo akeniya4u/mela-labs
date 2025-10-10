@@ -91,7 +91,7 @@ const projects = [{
   image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
   link: "#"
 }];
-const categories = ["Technology & AI", "Creative & Media"];
+const categories = ["Technology & AI", "Creative & Media", "Digital Marketing", "Virtual Assistance & Operations"];
 export default function Home({
   onBookingClick
 }: {
